@@ -360,12 +360,44 @@
     let currentCards = [];
     let currentCardIndex = 0;
 
+    // Kaldığı Yeri Kaydetme
+    function saveCardProgress() {
+      if (!currentCards.length) return;
+      const curWord = currentCards[currentCardIndex]?.ingilizce || '';
+      const activePill = document.querySelector('.pill.active')?.innerText.trim() || 'Tümü';
+      localStorage.setItem('kelime_son_durum', JSON.stringify({
+        seviye: activePill,
+        kelime: curWord
+      }));
+    }
+
     fetch('kelimeler.json')
       .then(res => res.json())
       .then(data => {
         const local = JSON.parse(localStorage.getItem('custom_words') || '[]');
         allWords = [...local, ...data];
-        filterCards('Tümü');
+
+        // Kaydedilmiş son durumu yükle
+        const sonDurum = JSON.parse(localStorage.getItem('kelime_son_durum') || '{}');
+        const hedefSeviye = sonDurum.seviye || 'Tümü';
+        const hedefKelime = (sonDurum.kelime || '').toLowerCase();
+
+        // Buton seçimini ayarla
+        document.querySelectorAll('.pill').forEach(p => {
+          if (p.innerText.trim() === hedefSeviye) p.classList.add('active');
+          else p.classList.remove('active');
+        });
+
+        currentCards = (hedefSeviye === 'Tümü') ? allWords : allWords.filter(w => (w.seviye || '').toUpperCase() === hedefSeviye);
+
+        if (hedefKelime) {
+          const idx = currentCards.findIndex(w => (w.ingilizce || '').toLowerCase() === hedefKelime);
+          currentCardIndex = (idx !== -1) ? idx : 0;
+        } else {
+          currentCardIndex = 0;
+        }
+
+        updateCardUI();
         renderLibrary();
       })
       .catch(() => {
@@ -386,6 +418,7 @@
       currentCards = (level === 'Tümü') ? allWords : allWords.filter(w => (w.seviye || '').toUpperCase() === level);
       currentCardIndex = 0;
       updateCardUI();
+      saveCardProgress();
     }
 
     function updateCardUI() {
@@ -410,6 +443,7 @@
       if (currentCards.length) {
         currentCardIndex = (currentCardIndex + 1) % currentCards.length;
         updateCardUI();
+        saveCardProgress();
       }
     }
 
@@ -417,6 +451,7 @@
       if (currentCards.length) {
         currentCardIndex = (currentCardIndex - 1 + currentCards.length) % currentCards.length;
         updateCardUI();
+        saveCardProgress();
       }
     }
 
@@ -454,7 +489,6 @@
       });
     }
 
-    /* TEST AYARLARI & MANTIĞI */
     function toggleQuizLevel(btn) {
       btn.classList.toggle('active');
     }
