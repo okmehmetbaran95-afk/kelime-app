@@ -18,6 +18,7 @@
       --muted: #64748B;
       --success: #10B981;
       --danger: #EF4444;
+      --gold: #FBBF24;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
     body {
@@ -30,12 +31,24 @@
       overflow: hidden;
     }
     header {
-      padding: 16px;
-      text-align: center;
-      font-size: 20px;
+      padding: 14px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #242852;
+    }
+    .logo-text { font-size: 19px; font-weight: 800; color: var(--accent); letter-spacing: 0.5px; }
+    .streak-badge {
+      font-size: 13px;
       font-weight: 800;
       color: var(--accent);
-      border-bottom: 1px solid #242852;
+      background: var(--panel);
+      padding: 5px 12px;
+      border-radius: 14px;
+      border: 1px solid #2A2E5D;
+      display: flex;
+      align-items: center;
+      gap: 5px;
     }
     main {
       flex: 1;
@@ -83,6 +96,7 @@
       cursor: pointer;
     }
     .pill.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+    .pill.fav-pill.active { background: var(--gold); color: #0F1123; border-color: var(--gold); }
 
     .card-container {
       perspective: 1000px;
@@ -125,7 +139,23 @@
       color: var(--accent);
       position: absolute;
       top: 16px;
+      left: 18px;
     }
+    .fav-btn {
+      position: absolute;
+      top: 12px;
+      right: 16px;
+      background: none;
+      border: none;
+      font-size: 24px;
+      color: var(--muted);
+      cursor: pointer;
+      padding: 4px;
+      transition: transform 0.2s;
+    }
+    .fav-btn:active { transform: scale(1.3); }
+    .fav-btn.active { color: var(--gold); }
+    
     .word-text { font-size: 32px; font-weight: 800; margin-bottom: 16px; }
     .sentence-box {
       background: #12152E;
@@ -135,6 +165,7 @@
       color: #CBD5E1;
       font-style: italic;
       margin-top: 10px;
+      border: 1px solid #242852;
     }
     .audio-btn {
       background: var(--accent);
@@ -226,13 +257,17 @@
 </head>
 <body>
 
-  <header>KELİME 1.0</header>
+  <header>
+    <span class="logo-text">KELİME 1.0</span>
+    <div class="streak-badge" id="streak-indicator">🔥 0 Gün</div>
+  </header>
 
   <main>
     <!-- 1. KARTLAR -->
     <section id="tab-cards" class="tab-content active">
       <div class="filter-pills" id="level-pills">
         <div class="pill active" onclick="filterCards('Tümü', this)">Tümü</div>
+        <div class="pill fav-pill" onclick="filterCards('Favoriler', this)">⭐ Favoriler</div>
         <div class="pill" onclick="filterCards('A1', this)">A1</div>
         <div class="pill" onclick="filterCards('A2', this)">A2</div>
         <div class="pill" onclick="filterCards('B1', this)">B1</div>
@@ -247,11 +282,13 @@
         <div class="card" id="flashcard" onclick="flipCard()">
           <div class="card-face card-front">
             <span class="badge" id="front-badge">A1</span>
+            <button class="fav-btn" id="fav-btn-front" onclick="toggleFavorite(event)">☆</button>
             <div class="word-text" id="front-word">Yükleniyor...</div>
             <button class="audio-btn" onclick="speakCurrent(event)">🔊 Dinle</button>
           </div>
           <div class="card-face card-back">
             <span class="badge" id="back-badge">A1</span>
+            <button class="fav-btn" id="fav-btn-back" onclick="toggleFavorite(event)">☆</button>
             <div class="word-text" style="color:var(--accent)" id="back-word">...</div>
             <div class="sentence-box" id="back-sentence">...</div>
           </div>
@@ -359,16 +396,87 @@
     let allWords = [];
     let currentCards = [];
     let currentCardIndex = 0;
+    let favorites = JSON.parse(localStorage.getItem('kelime_favoriler') || '[]');
 
-    // Kaldığı Yeri Kaydetme
+    /* GÜNLÜK SERİ (STREAK) YÖNETİMİ */
+    function checkAndUpdateStreak() {
+      const today = new Date().toISOString().slice(0, 10);
+      let data = JSON.parse(localStorage.getItem('kelime_streak') || '{"lastDate":"","count":0}');
+
+      if (data.lastDate === today) {
+        renderStreak(data.count);
+        return;
+      }
+
+      const yesterday = new Date();
+      yesterday.setDate(yesterday.getDate() - 1);
+      const yesterdayStr = yesterday.toISOString().slice(0, 10);
+
+      if (data.lastDate === yesterdayStr) {
+        data.count += 1;
+      } else {
+        data.count = 1;
+      }
+
+      data.lastDate = today;
+      localStorage.setItem('kelime_streak', JSON.stringify(data));
+      renderStreak(data.count);
+    }
+
+    function renderStreak(count) {
+      const el = document.getElementById('streak-indicator');
+      if (el) el.innerText = `🔥 ${count} Gün`;
+    }
+
+    /* DURUM VE FAVORİ YÖNETİMİ */
     function saveCardProgress() {
       if (!currentCards.length) return;
       const curWord = currentCards[currentCardIndex]?.ingilizce || '';
-      const activePill = document.querySelector('.pill.active')?.innerText.trim() || 'Tümü';
+      const activePill = document.querySelector('.pill.active')?.innerText.replace('⭐ ', '').trim() || 'Tümü';
       localStorage.setItem('kelime_son_durum', JSON.stringify({
         seviye: activePill,
         kelime: curWord
       }));
+    }
+
+    function isFavorite(word) {
+      return favorites.includes((word || '').toLowerCase());
+    }
+
+    function toggleFavorite(e) {
+      if (e) e.stopPropagation();
+      if (!currentCards.length) return;
+      const word = (currentCards[currentCardIndex].ingilizce || '').toLowerCase();
+      const idx = favorites.indexOf(word);
+
+      if (idx === -1) {
+        favorites.push(word);
+      } else {
+        favorites.splice(idx, 1);
+      }
+      localStorage.setItem('kelime_favoriler', JSON.stringify(favorites));
+      updateFavButtons();
+
+      const activePill = document.querySelector('.pill.active')?.innerText.trim();
+      if (activePill === '⭐ Favoriler') {
+        currentCards = allWords.filter(w => isFavorite(w.ingilizce));
+        if (currentCardIndex >= currentCards.length) currentCardIndex = Math.max(0, currentCards.length - 1);
+        updateCardUI();
+      }
+      checkAndUpdateStreak();
+    }
+
+    function updateFavButtons() {
+      if (!currentCards.length) return;
+      const word = (currentCards[currentCardIndex].ingilizce || '').toLowerCase();
+      const fav = isFavorite(word);
+      ['fav-btn-front', 'fav-btn-back'].forEach(id => {
+        const btn = document.getElementById(id);
+        if (btn) {
+          btn.innerText = fav ? '★' : '☆';
+          btn.className = 'fav-btn' + (fav ? ' active' : '');
+        }
+      });
     }
 
     fetch('kelimeler.json')
@@ -377,18 +485,25 @@
         const local = JSON.parse(localStorage.getItem('custom_words') || '[]');
         allWords = [...local, ...data];
 
-        // Kaydedilmiş son durumu yükle
+        checkAndUpdateStreak();
+
         const sonDurum = JSON.parse(localStorage.getItem('kelime_son_durum') || '{}');
         const hedefSeviye = sonDurum.seviye || 'Tümü';
         const hedefKelime = (sonDurum.kelime || '').toLowerCase();
 
-        // Buton seçimini ayarla
         document.querySelectorAll('.pill').forEach(p => {
-          if (p.innerText.trim() === hedefSeviye) p.classList.add('active');
+          const txt = p.innerText.replace('⭐ ', '').trim();
+          if (txt === hedefSeviye) p.classList.add('active');
           else p.classList.remove('active');
         });
 
-        currentCards = (hedefSeviye === 'Tümü') ? allWords : allWords.filter(w => (w.seviye || '').toUpperCase() === hedefSeviye);
+        if (hedefSeviye === 'Favoriler') {
+          currentCards = allWords.filter(w => isFavorite(w.ingilizce));
+        } else if (hedefSeviye === 'Tümü') {
+          currentCards = allWords;
+        } else {
+          currentCards = allWords.filter(w => (w.seviye || '').toUpperCase() === hedefSeviye);
+        }
 
         if (hedefKelime) {
           const idx = currentCards.findIndex(w => (w.ingilizce || '').toLowerCase() === hedefKelime);
@@ -415,28 +530,54 @@
     function filterCards(level, el) {
       document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
       if (el) el.classList.add('active');
-      currentCards = (level === 'Tümü') ? allWords : allWords.filter(w => (w.seviye || '').toUpperCase() === level);
+
+      if (level === 'Favoriler') {
+        currentCards = allWords.filter(w => isFavorite(w.ingilizce));
+      } else if (level === 'Tümü') {
+        currentCards = allWords;
+      } else {
+        currentCards = allWords.filter(w => (w.seviye || '').toUpperCase() === level);
+      }
+
       currentCardIndex = 0;
       updateCardUI();
       saveCardProgress();
+      checkAndUpdateStreak();
     }
 
     function updateCardUI() {
       const card = document.getElementById('flashcard');
       card.classList.remove('flipped');
-      if (!currentCards.length) return;
+
+      if (!currentCards.length) {
+        document.getElementById('front-word').innerText = "Kelime Yok";
+        document.getElementById('back-word').innerText = "Favorilere henüz kelime eklemedin!";
+        document.getElementById('back-sentence').innerText = "Kartlardaki yıldız (☆) simgesine dokunarak favorilerine kelime ekleyebilirsin.";
+        document.getElementById('card-level-tag').innerText = "BOŞ";
+        document.getElementById('card-counter').innerText = "0 / 0";
+        ['fav-btn-front', 'fav-btn-back'].forEach(id => {
+          const b = document.getElementById(id);
+          if (b) b.innerText = "☆";
+        });
+        return;
+      }
+
       const w = currentCards[currentCardIndex];
       document.getElementById('front-word').innerText = w.ingilizce;
       document.getElementById('back-word').innerText = w.turkce;
       document.getElementById('back-sentence').innerText = `"${w.cumle}"`;
-      document.getElementById('front-badge').innerText = w.seviye;
-      document.getElementById('back-badge').innerText = w.seviye;
-      document.getElementById('card-level-tag').innerText = `SEVİYE: ${w.seviye}`;
+      document.getElementById('front-badge').innerText = w.seviye || 'B1';
+      document.getElementById('back-badge').innerText = w.seviye || 'B1';
+      document.getElementById('card-level-tag').innerText = `SEVİYE: ${w.seviye || 'B1'}`;
       document.getElementById('card-counter').innerText = `${currentCardIndex + 1} / ${currentCards.length}`;
+      updateFavButtons();
     }
 
     function flipCard() {
-      document.getElementById('flashcard').classList.toggle('flipped');
+      if (currentCards.length) {
+        document.getElementById('flashcard').classList.toggle('flipped');
+        checkAndUpdateStreak();
+      }
     }
 
     function nextCard() {
@@ -444,6 +585,7 @@
         currentCardIndex = (currentCardIndex + 1) % currentCards.length;
         updateCardUI();
         saveCardProgress();
+        checkAndUpdateStreak();
       }
     }
 
@@ -452,6 +594,7 @@
         currentCardIndex = (currentCardIndex - 1 + currentCards.length) % currentCards.length;
         updateCardUI();
         saveCardProgress();
+        checkAndUpdateStreak();
       }
     }
 
@@ -465,7 +608,10 @@
 
     function speakCurrent(e) {
       e.stopPropagation();
-      speakText(currentCards[currentCardIndex].ingilizce);
+      if (currentCards.length) {
+        speakText(currentCards[currentCardIndex].ingilizce);
+        checkAndUpdateStreak();
+      }
     }
 
     function renderLibrary() {
@@ -475,11 +621,12 @@
       const filtered = allWords.filter(w => w.ingilizce.includes(q) || w.turkce.includes(q)).slice(0, 60);
 
       filtered.forEach(w => {
+        const isFav = isFavorite(w.ingilizce);
         const item = document.createElement('div');
         item.className = 'word-item';
         item.innerHTML = `
           <div>
-            <span style="color:var(--accent); font-weight:800; font-size:12px; margin-right:6px;">${w.seviye}</span>
+            <span style="color:${isFav ? 'var(--gold)' : 'var(--accent)'}; font-weight:800; font-size:12px; margin-right:6px;">${isFav ? '★' : ''} ${w.seviye}</span>
             <strong>${w.ingilizce}</strong>
             <div style="font-size:12px; color:var(--muted);">${w.turkce}</div>
           </div>
@@ -529,6 +676,7 @@
       document.getElementById('quiz-result').style.display = 'none';
       document.getElementById('quiz-active').style.display = 'flex';
       renderQuizQuestion();
+      checkAndUpdateStreak();
     }
 
     function renderQuizQuestion() {
@@ -611,6 +759,7 @@
       document.getElementById('add-sentence').value = '';
       document.getElementById('add-status').innerText = `✅ "${en}" kelimesi kaydedildi!`;
       setTimeout(() => document.getElementById('add-status').innerText = '', 3000);
+      checkAndUpdateStreak();
     }
   </script>
 </body>
