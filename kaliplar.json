@@ -1,44 +1,416 @@
 [
   {
+    "ingilizce": "break down",
+    "turkce": "bozulmak / ruhen çökmek",
+    "cumle": "My car broke down on the highway yesterday.",
+    "seviye": "Phrasal"
+  },
+  {
+    "ingilizce": "break up",
+    "turkce": "ilişkiyi sonlandırmak / ayrılmak",
+    "cumle": "They decided to break up after three years.",
+    "seviye": "Phrasal"
+  },
+  {
+    "ingilizce": "bring up",
+    "turkce": "konuyu açmak / çocuk büyütmek",
+    "cumle": "Why did you bring up that problem during the meeting?",
+    "seviye": "Phrasal"
+  },
+  {
+    "ingilizce": "call off",
+    "turkce": "iptal etmek",
+    "cumle": "They had to call off the football match due to heavy rain.",
+    "seviye": "Phrasal"
+  },
+  {
+    "ingilizce": "calm down",
+    "turkce": "sakinleşmek / yatışmak",
+    "cumle": "Take a deep breath and calm down.",
+    "seviye": "Phrasal"
+  },
+  {
+    "ingilizce": "carry on",
+    "turkce": "devam etmek / sürdürmek",
+    "cumle": "Carry on with your work while I am away.",
+    "seviye": "Phrasal"
+  },
+  {
+    "ingilizce": "catch up with",
+    "turkce": "hızına yetişmek / aynı seviyeye gelmek",
+    "cumle": "Go ahead, I will catch up with you in a minute.",
+    "seviye": "Phrasal"
+  },
+  {
+    "ingilizce": "check in",
+    "turkce": "giriş yapmak (otel, havalimanı)",
+    "cumle": "We need to check in at least two hours before the flight.",
+    "seviye": "Phrasal"
+  },
+  {
+    "ingilizce": "check out",
+    "turkce": "çıkış yapmak / göz atmak",
+    "cumle": "Check out this cool new website I found.",
+    "seviye": "Phrasal"
+  },
+  {
+    "ingilizce": "come across",
+    "turkce": "tesadüfen karşılaşmak / denk gelmek",
+    "cumle": "I came across an old photo album in the attic.",
+    "seviye": "Phrasal"
+  },
+  {
+    "ingilizce": "come up with",
+    "turkce": "fikir veya çözüm üretmek",
+    "cumle": "She came up with a brilliant solution to the problem.",
+    "seviye": "Phrasal"
+  },
+  {
+    "ingilizce": "cut down on",
+    "turkce": "tüketimini azaltmak / kısmak",
+    "cumle": "I am trying to cut down on sugar and coffee.",
+    "seviye": "Phrasal"
+  },
+  {
+    "ingilizce": "drop by",
+    "turkce": "habersiz uğramak / geçerken ziyaret etmek",
+    "cumle": "Feel free to drop by whenever you are in town.",
+    "seviye": "Phrasal"
+  },
+  {
+    "ingilizce": "drop off",
+    "turkce": "arabayla birini bırakmak / uyuyakalmak",
+    "cumle": "Can you drop me off near the metro station?",
+    "seviye": "Phrasal"
+  },
+  {
+    "ingilizce": "end up",
+    "turkce": "kendini beklenmedik bir durumda/yerde bulmak",
+    "cumle": "We took the wrong turn and ended up in another city.",
+    "seviye": "Phrasal"
+  },
+  {
+    "ingilizce": "figure out",
+    "turkce": "çözmek / mantığını anlamak / halletmek",
+    "cumle": "I am trying to figure out how this script works.",
+    "seviye": "Phrasal"
+  },
+  {
+    "ingilizce": "fill in",
+    "turkce": "form doldurmak / birinin yerine geçici bakmak",
+    "cumle": "Please fill in this application form.",
+    "seviye": "Phrasal"
+  },
+  {
+    "ingilizce": "find out",
+    "turkce": "öğrenmek / keşfetmek",
+    "cumle": "I need to find out what time the museum opens.",
+    "seviye": "Phrasal"
+  },
+  {
+    "ingilizce": "get along with",
+    "turkce": "biriyle iyi geçinmek / anlaşmak",
+    "cumle": "Do you get along with your new roommates?",
+    "seviye": "Phrasal"
+  },
+  {
+    "ingilizce": "get away with",
+    "turkce": "yaptığı yanına kâr kalmak / ceza almamak",
+    "cumle": "You cannot break the rules and expect to get away with it.",
+    "seviye": "Phrasal"
+  },
+  {
+    "ingilizce": "get back to",
+    "turkce": "birine sonradan geri dönüş yapmak",
+    "cumle": "I will check my schedule and get back to you.",
+    "seviye": "Phrasal"
+  },
+  {
+    "ingilizce": "get over",
+    "turkce": "hastalığı veya üzüntüyü atlatmak",
+    "cumle": "It took her months to get over the shock.",
+    "seviye": "Phrasal"
+  },
+  {
+    "ingilizce": "get rid of",
+    "turkce": "kurtulmak / elden çıkarmak",
+    "cumle": "We should get rid of all these old boxes.",
+    "seviye": "Phrasal"
+  },
+  {
+    "ingilizce": "give away",
+    "turkce": "bağışlamak / sırrı ele vermek",
+    "cumle": "He gave away all his old books to the library.",
+    "seviye": "Phrasal"
+  },
+  {
+    "ingilizce": "give up",
+    "turkce": "pes etmek / vazgeçmek / bırakmak",
+    "cumle": "Never give up on your goals, stay focused.",
+    "seviye": "Phrasal"
+  },
+  {
+    "ingilizce": "go on",
+    "turkce": "devam etmek / meydana gelmek",
+    "cumle": "The lecture will go on until five o'clock.",
+    "seviye": "Phrasal"
+  },
+  {
+    "ingilizce": "grow up",
+    "turkce": "büyümek / yetişkin olmak",
+    "cumle": "I grew up in a small town near the sea.",
+    "seviye": "Phrasal"
+  },
+  {
+    "ingilizce": "hang out",
+    "turkce": "vakit geçirmek / takılmak",
+    "cumle": "We usually hang out at the cafe after class.",
+    "seviye": "Phrasal"
+  },
+  {
+    "ingilizce": "hold on",
+    "turkce": "hatta beklemek / dayanmak",
+    "cumle": "Hold on a second, let me grab a pen.",
+    "seviye": "Phrasal"
+  },
+  {
+    "ingilizce": "keep on",
+    "turkce": "yapmaya devam etmek",
+    "cumle": "If you keep on practicing, your English will improve.",
+    "seviye": "Phrasal"
+  },
+  {
+    "ingilizce": "keep up with",
+    "turkce": "hızına ayak uydurmak",
+    "cumle": "It is hard to keep up with the fast pace of technology.",
+    "seviye": "Phrasal"
+  },
+  {
+    "ingilizce": "look after",
+    "turkce": "göz kulak olmak / ilgilenmek",
+    "cumle": "Can you look after my cat while I am on vacation?",
+    "seviye": "Phrasal"
+  },
+  {
+    "ingilizce": "look for",
+    "turkce": "aramak",
+    "cumle": "I am looking for my keys; have you seen them?",
+    "seviye": "Phrasal"
+  },
+  {
+    "ingilizce": "look forward to",
+    "turkce": "dört gözle beklemek",
+    "cumle": "I am really looking forward to the holiday break.",
+    "seviye": "Phrasal"
+  },
+  {
+    "ingilizce": "look into",
+    "turkce": "araştırmak / incelemek",
+    "cumle": "The engineer is looking into the software crash.",
+    "seviye": "Phrasal"
+  },
+  {
+    "ingilizce": "look up",
+    "turkce": "sözlükten veya internetten bilgi aramak",
+    "cumle": "You can look up unfamiliar words in the dictionary.",
+    "seviye": "Phrasal"
+  },
+  {
+    "ingilizce": "look up to",
+    "turkce": "birine hayranlık duymak / örnek almak",
+    "cumle": "Young students often look up to successful athletes.",
+    "seviye": "Phrasal"
+  },
+  {
+    "ingilizce": "make up",
+    "turkce": "uydurmak / barışmak",
+    "cumle": "He made up a silly excuse for being late.",
+    "seviye": "Phrasal"
+  },
+  {
+    "ingilizce": "pass away",
+    "turkce": "vefat etmek / hayatını kaybetmek",
+    "cumle": "His grandfather passed away peacefully at age ninety.",
+    "seviye": "Phrasal"
+  },
+  {
+    "ingilizce": "pass out",
+    "turkce": "bayılmak / kendinden geçmek",
+    "cumle": "The heat was so intense that several people passed out.",
+    "seviye": "Phrasal"
+  },
+  {
+    "ingilizce": "pick up",
+    "turkce": "arabayla almak / yerden kaldırmak / dil kapmak",
+    "cumle": "I will pick you up from the airport at six.",
+    "seviye": "Phrasal"
+  },
+  {
+    "ingilizce": "point out",
+    "turkce": "dikkat çekmek / işaret etmek",
+    "cumle": "She pointed out an important mistake in my report.",
+    "seviye": "Phrasal"
+  },
+  {
+    "ingilizce": "put off",
+    "turkce": "ertelemek",
+    "cumle": "Never put off until tomorrow what you can do today.",
+    "seviye": "Phrasal"
+  },
+  {
+    "ingilizce": "put on",
+    "turkce": "giymek / takmak",
+    "cumle": "Put on your coat; it is freezing outside.",
+    "seviye": "Phrasal"
+  },
+  {
+    "ingilizce": "put out",
+    "turkce": "yangın veya sigara söndürmek",
+    "cumle": "Firefighters arrived quickly to put out the fire.",
+    "seviye": "Phrasal"
+  },
+  {
+    "ingilizce": "put up with",
+    "turkce": "tahammül etmek / katlanmak",
+    "cumle": "I cannot put up with this loud noise anymore.",
+    "seviye": "Phrasal"
+  },
+  {
+    "ingilizce": "run into",
+    "turkce": "tesadüfen biriyle karşılaşmak",
+    "cumle": "I ran into my former teacher at the grocery store.",
+    "seviye": "Phrasal"
+  },
+  {
+    "ingilizce": "run out of",
+    "turkce": "tükenmek / bitmek",
+    "cumle": "We have run out of printer paper.",
+    "seviye": "Phrasal"
+  },
+  {
+    "ingilizce": "set up",
+    "turkce": "kurmak / düzenlemek",
+    "cumle": "We need to set up a meeting for next week.",
+    "seviye": "Phrasal"
+  },
+  {
+    "ingilizce": "show up",
+    "turkce": "çıkagelmek / görünmek",
+    "cumle": "He finally showed up an hour after the movie started.",
+    "seviye": "Phrasal"
+  },
+  {
+    "ingilizce": "stand out",
+    "turkce": "göze çarpmak / dikkat çekmek",
+    "cumle": "Her colorful dress made her stand out in the crowd.",
+    "seviye": "Phrasal"
+  },
+  {
+    "ingilizce": "take after",
+    "turkce": "bir büyüğüne çekmek / benzemek",
+    "cumle": "Baran takes after his father in terms of patience.",
+    "seviye": "Phrasal"
+  },
+  {
+    "ingilizce": "take off",
+    "turkce": "uçağın havalanması / giysi çıkarmak",
+    "cumle": "The plane is scheduled to take off at noon.",
+    "seviye": "Phrasal"
+  },
+  {
+    "ingilizce": "take out",
+    "turkce": "çıkarmak / çöpe atmak / yemeğe çıkarmak",
+    "cumle": "Don't forget to take out the trash before you leave.",
+    "seviye": "Phrasal"
+  },
+  {
+    "ingilizce": "throw away",
+    "turkce": "çöpe atmak / israf etmek",
+    "cumle": "Do not throw away those reusable bottles.",
+    "seviye": "Phrasal"
+  },
+  {
+    "ingilizce": "turn down",
+    "turkce": "teklifi reddetmek / sesi kısmak",
+    "cumle": "He turned down the job offer because of the location.",
+    "seviye": "Phrasal"
+  },
+  {
+    "ingilizce": "turn off",
+    "turkce": "cihazı kapatmak",
+    "cumle": "Remember to turn off the lights when leaving.",
+    "seviye": "Phrasal"
+  },
+  {
+    "ingilizce": "turn on",
+    "turkce": "cihazı açmak",
+    "cumle": "Can you turn on the air conditioner, please?",
+    "seviye": "Phrasal"
+  },
+  {
+    "ingilizce": "turn up",
+    "turkce": "çıkagelmek / sesini açmak",
+    "cumle": "She turned up the music and started dancing.",
+    "seviye": "Phrasal"
+  },
+  {
+    "ingilizce": "wake up",
+    "turkce": "uyanmak",
+    "cumle": "I usually wake up early on weekdays.",
+    "seviye": "Phrasal"
+  },
+  {
+    "ingilizce": "work out",
+    "turkce": "spor yapmak / işlerin yolunda gitmesi",
+    "cumle": "Everything will work out fine in the end.",
+    "seviye": "Phrasal"
+  },
+  {
+    "ingilizce": "write down",
+    "turkce": "not almak / yazıya dökmek",
+    "cumle": "Let me write down your phone number.",
+    "seviye": "Phrasal"
+  },
+  {
     "ingilizce": "break a leg",
     "turkce": "iyi şanslar / şeytanın bacağını kır",
-    "cumle": "Break a leg tonight! I know your presentation will be great.",
+    "cumle": "Break a leg tonight! Your presentation will be great.",
     "seviye": "Deyim"
   },
   {
     "ingilizce": "under the weather",
-    "turkce": "keyifsiz / hafif kırgın / hasta",
-    "cumle": "I won't come to work today; I'm feeling a bit under the weather.",
+    "turkce": "keyifsiz / hafif hasta",
+    "cumle": "I am feeling a bit under the weather today.",
     "seviye": "Deyim"
   },
   {
     "ingilizce": "call it a day",
     "turkce": "bugünlük bu kadar yeter / paydos etmek",
-    "cumle": "We've been studying for six hours, let's call it a day.",
+    "cumle": "We have done enough work, let's call it a day.",
     "seviye": "Deyim"
   },
   {
     "ingilizce": "bite the bullet",
-    "turkce": "dişini sıkmak / acı gerçeğe katlanmak",
-    "cumle": "You just have to bite the bullet and take that hard exam.",
+    "turkce": "dişini sıkmak / acı gerçeği kabullenmek",
+    "cumle": "You have to bite the bullet and go to the dentist.",
     "seviye": "Deyim"
   },
   {
     "ingilizce": "hit the sack",
     "turkce": "kafayı vurup yatmak / uyumaya gitmek",
-    "cumle": "I'm exhausted, I'm going to hit the sack early tonight.",
+    "cumle": "I am exhausted, time to hit the sack.",
     "seviye": "Deyim"
   },
   {
     "ingilizce": "piece of cake",
     "turkce": "çocuk oyuncağı / çok kolay",
-    "cumle": "Don't worry about the driving test, it's a piece of cake.",
+    "cumle": "The exam was a piece of cake for well-prepared students.",
     "seviye": "Deyim"
   },
   {
     "ingilizce": "break the ice",
     "turkce": "buzları eritmek / ortamı yumuşatmak",
-    "cumle": "He told a funny joke to break the ice at the meeting.",
+    "cumle": "He cracked a joke to break the ice among strangers.",
     "seviye": "Deyim"
   },
   {
@@ -49,128 +421,260 @@
   },
   {
     "ingilizce": "burn the midnight oil",
-    "turkce": "geceleri geç saatlere kadar çalışmak",
-    "cumle": "Baran is burning the midnight oil to finish his project.",
+    "turkce": "geceleri geç saate kadar çalışmak",
+    "cumle": "Students are burning the midnight oil before finals.",
     "seviye": "Deyim"
   },
   {
     "ingilizce": "once in a blue moon",
     "turkce": "kırk yılda bir / çok nadiren",
-    "cumle": "I only eat fast food once in a blue moon.",
+    "cumle": "He only travels abroad once in a blue moon.",
     "seviye": "Deyim"
   },
   {
     "ingilizce": "cost an arm and a leg",
     "turkce": "ateş pahası olmak / çok pahalıya patlamak",
-    "cumle": "The new laptop cost an arm and a leg, but it is worth it.",
+    "cumle": "Repairs on that sports car cost an arm and a leg.",
     "seviye": "Deyim"
   },
   {
     "ingilizce": "spill the beans",
-    "turkce": "ağzındaki baklayı çıkarmak / sırrı açığa vurmak",
-    "cumle": "Don't spill the beans about the surprise birthday party!",
+    "turkce": "ağzındaki baklayı çıkarmak / sırrı ifşa etmek",
+    "cumle": "Don't spill the beans about our surprise party!",
     "seviye": "Deyim"
   },
   {
     "ingilizce": "see eye to eye",
-    "turkce": "aynı fikirde olmak / hemfikir olmak",
-    "cumle": "My manager and I don't always see eye to eye on this plan.",
+    "turkce": "hemfikir olmak / aynı görüşü paylaşmak",
+    "cumle": "They rarely see eye to eye on political issues.",
     "seviye": "Deyim"
   },
   {
     "ingilizce": "cut corners",
-    "turkce": "kolaya kaçmak / kaliteden ödün verip masraftan kısmak",
-    "cumle": "When building a software, you should never cut corners.",
+    "turkce": "kolaya kaçmak / masraftan kısıp kaliteyi düşürmek",
+    "cumle": "Never cut corners when designing structural safety.",
     "seviye": "Deyim"
   },
   {
     "ingilizce": "hit the nail on the head",
     "turkce": "tam üstüne basmak / taşı gediğine koymak",
-    "cumle": "You hit the nail on the head with your analysis.",
+    "cumle": "Your diagnosis hit the nail on the head.",
     "seviye": "Deyim"
   },
   {
     "ingilizce": "take it with a grain of salt",
-    "turkce": "şüpheyle yaklaşmak / ihtiyatla karşılamak",
-    "cumle": "You should take online rumors with a grain of salt.",
+    "turkce": "ihtiyatla karşılamak / şüpheyle yaklaşmak",
+    "cumle": "Take gossip on social media with a grain of salt.",
     "seviye": "Deyim"
   },
   {
-    "ingilizce": "figure out",
-    "turkce": "çözmek / mantığını anlamak",
-    "cumle": "I'm trying to figure out how this algorithm works.",
-    "seviye": "Phrasal"
+    "ingilizce": "bark up the wrong tree",
+    "turkce": "yanlış kapıyı çalmak / hatalı tahminde bulunmak",
+    "cumle": "If you think I took your pen, you are barking up the wrong tree.",
+    "seviye": "Deyim"
   },
   {
-    "ingilizce": "give up",
-    "turkce": "pes etmek / vazgeçmek",
-    "cumle": "Never give up on learning languages, consistency is key.",
-    "seviye": "Phrasal"
+    "ingilizce": "beat around the bush",
+    "turkce": "lafı gevelemek / sadede gelmemek",
+    "cumle": "Stop beating around the bush and tell me the truth.",
+    "seviye": "Deyim"
   },
   {
-    "ingilizce": "look forward to",
-    "turkce": "dört gözle beklemek",
-    "cumle": "I'm really looking forward to the weekend break.",
-    "seviye": "Phrasal"
+    "ingilizce": "blessing in disguise",
+    "turkce": "ilk başta kötü görünen ama hayırlı olan durum",
+    "cumle": "Losing that bad job turned out to be a blessing in disguise.",
+    "seviye": "Deyim"
   },
   {
-    "ingilizce": "run out of",
-    "turkce": "tükenmek / bitmek",
-    "cumle": "We have run out of time for this task.",
-    "seviye": "Phrasal"
+    "ingilizce": "burn bridges",
+    "turkce": "gemileri yakmak / dönüşü olmayan yola girmek",
+    "cumle": "Try not to burn bridges when quitting your job.",
+    "seviye": "Deyim"
   },
   {
-    "ingilizce": "put off",
-    "turkce": "ertelemek",
-    "cumle": "Never put off until tomorrow what you can do today.",
-    "seviye": "Phrasal"
+    "ingilizce": "cry over spilled milk",
+    "turkce": "olmuşla ölmüşe çare aramak / boşuna hayıflanmak",
+    "cumle": "The vase is broken; there is no use crying over spilled milk.",
+    "seviye": "Deyim"
   },
   {
-    "ingilizce": "come across",
-    "turkce": "tesadüfen karşılaşmak / denk gelmek",
-    "cumle": "I came across an interesting article while browsing.",
-    "seviye": "Phrasal"
+    "ingilizce": "every cloud has a silver lining",
+    "turkce": "her kötü durumun bir aydınlık tarafı vardır",
+    "cumle": "Stay positive; every cloud has a silver lining.",
+    "seviye": "Deyim"
   },
   {
-    "ingilizce": "get along with",
-    "turkce": "biriyle iyi geçinmek / iyi anlaşmak",
-    "cumle": "Do you get along with your new team members?",
-    "seviye": "Phrasal"
+    "ingilizce": "feel like a million bucks",
+    "turkce": "turp gibi olmak / kendini harika hissetmek",
+    "cumle": "After a good night's sleep, I feel like a million bucks.",
+    "seviye": "Deyim"
   },
   {
-    "ingilizce": "turn down",
-    "turkce": "reddetmek (teklif / istek)",
-    "cumle": "He turned down the job offer because the salary was low.",
-    "seviye": "Phrasal"
+    "ingilizce": "get a taste of your own medicine",
+    "turkce": "kendi kazdığı kuyuya düşmek",
+    "cumle": "The bully finally got a taste of his own medicine.",
+    "seviye": "Deyim"
   },
   {
-    "ingilizce": "bring up",
-    "turkce": "konuyu açmak / gündeme getirmek",
-    "cumle": "Why did you bring up that problem during lunch?",
-    "seviye": "Phrasal"
+    "ingilizce": "go the extra mile",
+    "turkce": "beklenenden fazlasını yapmak / fazladan çaba göstermek",
+    "cumle": "She always goes the extra mile to assist her clients.",
+    "seviye": "Deyim"
   },
   {
-    "ingilizce": "call off",
-    "turkce": "iptal etmek",
-    "cumle": "They had to call off the football match due to heavy rain.",
-    "seviye": "Phrasal"
+    "ingilizce": "hear through the grapevine",
+    "turkce": "kulaktan kulağa duymak / söylentisini almak",
+    "cumle": "I heard through the grapevine that they are expanding.",
+    "seviye": "Deyim"
   },
   {
-    "ingilizce": "look into",
-    "turkce": "araştırmak / incelemek",
-    "cumle": "The developer is looking into the bug reported by users.",
-    "seviye": "Phrasal"
+    "ingilizce": "in the heat of the moment",
+    "turkce": "o anki öfke veya heyecanla",
+    "cumle": "He said some cruel words in the heat of the moment.",
+    "seviye": "Deyim"
   },
   {
-    "ingilizce": "run into",
-    "turkce": "biriyle tesadüfen karşılaşmak",
-    "cumle": "I ran into my high school teacher at the supermarket.",
-    "seviye": "Phrasal"
+    "ingilizce": "kill two birds with one stone",
+    "turkce": "bir taşla iki kuş vurmak",
+    "cumle": "Biking to work kills two birds with one stone: exercise and transit.",
+    "seviye": "Deyim"
+  },
+  {
+    "ingilizce": "let the cat out of the bag",
+    "turkce": "ağzından kaçırmak / gizliyi ortaya dökmek",
+    "cumle": "Who let the cat out of the bag about the merger?",
+    "seviye": "Deyim"
+  },
+  {
+    "ingilizce": "no pain no gain",
+    "turkce": "emek olmadan yemek olmaz",
+    "cumle": "Working out hurts, but remember: no pain, no gain.",
+    "seviye": "Deyim"
+  },
+  {
+    "ingilizce": "on cloud nine",
+    "turkce": "mutluluktan havalara uçmak",
+    "cumle": "She was on cloud nine after passing her bar exam.",
+    "seviye": "Deyim"
+  },
+  {
+    "ingilizce": "on the fence",
+    "turkce": "kararsız kalmak / iki arada bir derede olmak",
+    "cumle": "I am still on the fence about moving to another city.",
+    "seviye": "Deyim"
+  },
+  {
+    "ingilizce": "pull someone's leg",
+    "turkce": "biriyle kafa bulmak / şaka yapmak",
+    "cumle": "Relax, I am just pulling your leg; you didn't fail.",
+    "seviye": "Deyim"
+  },
+  {
+    "ingilizce": "rain cats and dogs",
+    "turkce": "bardaktan boşanırcasına yağmur yağmak",
+    "cumle": "Take an umbrella, it is raining cats and dogs outside.",
+    "seviye": "Deyim"
+  },
+  {
+    "ingilizce": "ring a bell",
+    "turkce": "tanıdık gelmek / bir şeyler çağrıştırmak",
+    "cumle": "Her name rings a bell, but I cannot recall her face.",
+    "seviye": "Deyim"
+  },
+  {
+    "ingilizce": "steal someone's thunder",
+    "turkce": "rol çalmak / ilgiyi başkasının üstünden almak",
+    "cumle": "Don't announce your news during his wedding; you will steal his thunder.",
+    "seviye": "Deyim"
+  },
+  {
+    "ingilizce": "the ball is in your court",
+    "turkce": "top sende / sıra sende",
+    "cumle": "I have sent the proposal, now the ball is in your court.",
+    "seviye": "Deyim"
+  },
+  {
+    "ingilizce": "the best of both worlds",
+    "turkce": "her iki durumun da avantajına sahip olmak",
+    "cumle": "Working remotely offers the best of both worlds.",
+    "seviye": "Deyim"
+  },
+  {
+    "ingilizce": "the elephant in the room",
+    "turkce": "herkesin bildiği ama konuşmaktan kaçındığı büyük sorun",
+    "cumle": "Nobody mentioned the budget deficit, which was the elephant in the room.",
+    "seviye": "Deyim"
+  },
+  {
+    "ingilizce": "the last straw",
+    "turkce": "bardağı taşıran son damla",
+    "cumle": "His late arrival today was the last straw for his boss.",
+    "seviye": "Deyim"
+  },
+  {
+    "ingilizce": "throw in the towel",
+    "turkce": "havlu atmak / pes etmek",
+    "cumle": "After endless trials, the team refused to throw in the towel.",
+    "seviye": "Deyim"
+  },
+  {
+    "ingilizce": "time flies",
+    "turkce": "zaman su gibi akıp geçiyor",
+    "cumle": "Time flies when you are having fun with good friends.",
+    "seviye": "Deyim"
+  },
+  {
+    "ingilizce": "under the table",
+    "turkce": "elden / yasa dışı / kayıt dışı",
+    "cumle": "He was paid under the table to avoid taxes.",
+    "seviye": "Deyim"
+  },
+  {
+    "ingilizce": "walk on eggshells",
+    "turkce": "biri kırılmasın diye diken üstünde olmak",
+    "cumle": "We all walk on eggshells when the director is upset.",
+    "seviye": "Deyim"
+  },
+  {
+    "ingilizce": "water under the bridge",
+    "turkce": "köprünün altından çok sular aktı / geçmişte kaldı",
+    "cumle": "We argued in the past, but that is all water under the bridge now.",
+    "seviye": "Deyim"
+  },
+  {
+    "ingilizce": "wrap your head around",
+    "turkce": "aklı almak / bir türlü kavrayamamak",
+    "cumle": "I can barely wrap my head around these quantum physics theories.",
+    "seviye": "Deyim"
+  },
+  {
+    "ingilizce": "weather the storm",
+    "turkce": "zorlu bir dönemi sağ salim atlatmak",
+    "cumle": "Small businesses must be agile to weather the economic storm.",
+    "seviye": "Deyim"
+  },
+  {
+    "ingilizce": "back to square one",
+    "turkce": "başa dönmek / sıfırdan başlamak",
+    "cumle": "The experiment failed, so we are back to square one.",
+    "seviye": "Deyim"
+  },
+  {
+    "ingilizce": "cold feet",
+    "turkce": "son anda cesareti kırılmak / geri adım atmak",
+    "cumle": "He got cold feet right before stepping onto the stage.",
+    "seviye": "Deyim"
+  },
+  {
+    "ingilizce": "face the music",
+    "turkce": "yaptıklarının cezasını / sonucunu çekmek",
+    "cumle": "You broke the window; now you have to face the music.",
+    "seviye": "Deyim"
   },
   {
     "ingilizce": "so far so good",
     "turkce": "şu ana kadar her şey yolunda",
-    "cumle": "How is your new project going? So far so good!",
+    "cumle": "How is your new project coming along? So far so good!",
     "seviye": "Günlük"
   },
   {
@@ -181,50 +685,290 @@
   },
   {
     "ingilizce": "never mind",
-    "turkce": "zararı yok / boşver / unut gitsin",
-    "cumle": "Never mind, we can handle this issue tomorrow.",
+    "turkce": "zararı yok / boşver / takma kafana",
+    "cumle": "Never mind the mess, I will clean it up later.",
     "seviye": "Günlük"
   },
   {
     "ingilizce": "by all means",
     "turkce": "kesinlikle / elbette / hay hay",
-    "cumle": "Can I sit here? By all means!",
+    "cumle": "May I borrow your charger? By all means!",
     "seviye": "Günlük"
   },
   {
     "ingilizce": "off the top of my head",
     "turkce": "ezberden / hemen aklıma geliveren",
-    "cumle": "Off the top of my head, I think the train leaves at four.",
+    "cumle": "Off the top of my head, the train leaves at five.",
     "seviye": "Günlük"
   },
   {
     "ingilizce": "speak of the devil",
-    "turkce": "iti an çomağı hazırla / iyi insan lafının üstüne gelir",
-    "cumle": "Speak of the devil! We were just talking about you.",
+    "turkce": "iti an çomağı hazırla / lafının üstüne gelmek",
+    "cumle": "Speak of the devil! We were just discussing your presentation.",
     "seviye": "Günlük"
   },
   {
     "ingilizce": "make yourself at home",
     "turkce": "kendi evindeymiş gibi rahatına bak",
-    "cumle": "Come in, take off your coat and make yourself at home.",
+    "cumle": "Come on in and make yourself at home.",
     "seviye": "Günlük"
   },
   {
     "ingilizce": "it goes without saying",
     "turkce": "söylemeye bile gerek yok / aşikar",
-    "cumle": "It goes without saying that practice makes perfect.",
+    "cumle": "It goes without saying that practice is essential for mastery.",
     "seviye": "Günlük"
   },
   {
     "ingilizce": "better late than never",
     "turkce": "geç olsun da güç olmasın",
-    "cumle": "You finally submitted your assignment; better late than never!",
+    "cumle": "You finally arrived; better late than never!",
     "seviye": "Günlük"
   },
   {
     "ingilizce": "no wonder",
     "turkce": "şaşmamalı / hiç şaşırmadım",
-    "cumle": "He worked all night, no wonder he looks so tired.",
+    "cumle": "He stayed up all night gaming; no wonder he fell asleep in class.",
+    "seviye": "Günlük"
+  },
+  {
+    "ingilizce": "as far as i know",
+    "turkce": "bildiğim kadarıyla",
+    "cumle": "As far as I know, the store closes at eight o'clock.",
+    "seviye": "Günlük"
+  },
+  {
+    "ingilizce": "at all costs",
+    "turkce": "ne pahasına olursa olsun",
+    "cumle": "We must finish this building project on time at all costs.",
+    "seviye": "Günlük"
+  },
+  {
+    "ingilizce": "can't complain",
+    "turkce": "fena değil / şikayetim yok / yuvarlanıp gidiyoruz",
+    "cumle": "How is life treating you? Can't complain, staying busy.",
+    "seviye": "Günlük"
+  },
+  {
+    "ingilizce": "don't mention it",
+    "turkce": "lafı bile olmaz / bir şey değil",
+    "cumle": "Thanks for your great help! Don't mention it.",
+    "seviye": "Günlük"
+  },
+  {
+    "ingilizce": "easier said than done",
+    "turkce": "söylemesi kolay ama yapması zor",
+    "cumle": "Quitting junk food is definitely easier said than done.",
+    "seviye": "Günlük"
+  },
+  {
+    "ingilizce": "for the time being",
+    "turkce": "şimdilik / bir süreliğine",
+    "cumle": "This temporary desk will do for the time being.",
+    "seviye": "Günlük"
+  },
+  {
+    "ingilizce": "fingers crossed",
+    "turkce": "şans dilemek / umut etmek",
+    "cumle": "I submitted my scholarship form; fingers crossed!",
+    "seviye": "Günlük"
+  },
+  {
+    "ingilizce": "from time to time",
+    "turkce": "zaman zaman / ara sıra",
+    "cumle": "I still play video games from time to time.",
+    "seviye": "Günlük"
+  },
+  {
+    "ingilizce": "get real",
+    "turkce": "hayal görmeyi bırak / gerçekçi ol",
+    "cumle": "Get real! You cannot learn a language overnight.",
+    "seviye": "Günlük"
+  },
+  {
+    "ingilizce": "hold your horses",
+    "turkce": "dur bakalım / sabırlı ol / acele etme",
+    "cumle": "Hold your horses, we haven't confirmed the tickets yet.",
+    "seviye": "Günlük"
+  },
+  {
+    "ingilizce": "how come",
+    "turkce": "nasıl olur da / neden",
+    "cumle": "How come you didn't answer my text message?",
+    "seviye": "Günlük"
+  },
+  {
+    "ingilizce": "i couldn't care less",
+    "turkce": "hiç umurumda bile değil",
+    "cumle": "To be honest, I couldn't care less about celebrity gossip.",
+    "seviye": "Günlük"
+  },
+  {
+    "ingilizce": "i have no clue",
+    "turkce": "en ufak bir fikrim bile yok",
+    "cumle": "Where did he put the spare keys? I have no clue.",
+    "seviye": "Günlük"
+  },
+  {
+    "ingilizce": "in a nutshell",
+    "turkce": "kısacası / özetle",
+    "cumle": "In a nutshell, we need more budget to continue.",
+    "seviye": "Günlük"
+  },
+  {
+    "ingilizce": "in the meantime",
+    "turkce": "bu sırada / bu esnada",
+    "cumle": "The dinner will be ready soon; in the meantime, enjoy your drink.",
+    "seviye": "Günlük"
+  },
+  {
+    "ingilizce": "it's up to you",
+    "turkce": "sen bilirsin / karar senin",
+    "cumle": "We can eat pizza or tacos tonight, it is up to you.",
+    "seviye": "Günlük"
+  },
+  {
+    "ingilizce": "just in case",
+    "turkce": "her ihtimale karşı",
+    "cumle": "Take a spare jacket just in case it turns cold.",
+    "seviye": "Günlük"
+  },
+  {
+    "ingilizce": "keep in touch",
+    "turkce": "irtibatta kalmak / haberleşmek",
+    "cumle": "Have a safe flight and be sure to keep in touch!",
+    "seviye": "Günlük"
+  },
+  {
+    "ingilizce": "keep in mind",
+    "turkce": "aklında bulundur / unutma",
+    "cumle": "Keep in mind that tomorrow is a national holiday.",
+    "seviye": "Günlük"
+  },
+  {
+    "ingilizce": "let alone",
+    "turkce": "şöyle dursun / bir yana / nerede kaldı ki",
+    "cumle": "I can't afford a bicycle, let alone a brand new car.",
+    "seviye": "Günlük"
+  },
+  {
+    "ingilizce": "makes sense",
+    "turkce": "mantıklı geliyor / kafama yattı",
+    "cumle": "Your explanation about the bug makes complete sense.",
+    "seviye": "Günlük"
+  },
+  {
+    "ingilizce": "no hard feelings",
+    "turkce": "arada kırgınlık yok / gücenmece yok",
+    "cumle": "We disagreed during the meeting, but no hard feelings.",
+    "seviye": "Günlük"
+  },
+  {
+    "ingilizce": "not to mention",
+    "turkce": "ayrıca / bundan bahsetmiyorum bile",
+    "cumle": "It is raining heavily, not to mention the freezing wind.",
+    "seviye": "Günlük"
+  },
+  {
+    "ingilizce": "on purpose",
+    "turkce": "kasıtlı olarak / bilerek",
+    "cumle": "I am so sorry, I didn't step on your foot on purpose.",
+    "seviye": "Günlük"
+  },
+  {
+    "ingilizce": "out of order",
+    "turkce": "arızalı / kullanım dışı",
+    "cumle": "The coffee machine on the second floor is out of order.",
+    "seviye": "Günlük"
+  },
+  {
+    "ingilizce": "point taken",
+    "turkce": "anlaşıldı / ne demek istediğini anladım",
+    "cumle": "Point taken, I will double check my calculations next time.",
+    "seviye": "Günlük"
+  },
+  {
+    "ingilizce": "safe and sound",
+    "turkce": "sağ salim / burnu bile kanamadan",
+    "cumle": "They arrived home safe and sound after the long storm.",
+    "seviye": "Günlük"
+  },
+  {
+    "ingilizce": "take it easy",
+    "turkce": "sakin ol / keyfine bak",
+    "cumle": "Take it easy this weekend, you have been working hard.",
+    "seviye": "Günlük"
+  },
+  {
+    "ingilizce": "tell me about it",
+    "turkce": "bana mı anlatıyorsun / aynen öyle",
+    "cumle": "Traffic in the morning is horrible! Tell me about it!",
+    "seviye": "Günlük"
+  },
+  {
+    "ingilizce": "thank goodness",
+    "turkce": "çok şükür / allah'tan",
+    "cumle": "Thank goodness the missing luggage was finally found.",
+    "seviye": "Günlük"
+  },
+  {
+    "ingilizce": "the sooner the better",
+    "turkce": "ne kadar erken o kadar iyi",
+    "cumle": "When should I submit the form? The sooner the better.",
+    "seviye": "Günlük"
+  },
+  {
+    "ingilizce": "to be honest",
+    "turkce": "dürüst olmak gerekirse",
+    "cumle": "To be honest, I didn't really enjoy that movie.",
+    "seviye": "Günlük"
+  },
+  {
+    "ingilizce": "up in the air",
+    "turkce": "henüz belirsiz / havada kalmış",
+    "cumle": "Our holiday plans are still up in the air due to work.",
+    "seviye": "Günlük"
+  },
+  {
+    "ingilizce": "wait and see",
+    "turkce": "bekleyip görmek",
+    "cumle": "We cannot predict the market outcome; let's wait and see.",
+    "seviye": "Günlük"
+  },
+  {
+    "ingilizce": "what a pity",
+    "turkce": "ne yazık / ne kadar acı",
+    "cumle": "She missed the flight by five minutes, what a pity!",
+    "seviye": "Günlük"
+  },
+  {
+    "ingilizce": "you can say that again",
+    "turkce": "kesinlikle katılıyorum / son derece haklısın",
+    "cumle": "This weather is glorious! You can say that again!",
+    "seviye": "Günlük"
+  },
+  {
+    "ingilizce": "you bet",
+    "turkce": "kesinlikle / şüphen olmasın",
+    "cumle": "Are you coming to the football match tonight? You bet!",
+    "seviye": "Günlük"
+  },
+  {
+    "ingilizce": "you name it",
+    "turkce": "aklına ne gelirse / say say bitmez",
+    "cumle": "They sell books, gadgets, stationery, you name it.",
+    "seviye": "Günlük"
+  },
+  {
+    "ingilizce": "all in all",
+    "turkce": "uzun lafın kısası / genel olarak",
+    "cumle": "All in all, the vacation was a great experience.",
+    "seviye": "Günlük"
+  },
+  {
+    "ingilizce": "by the way",
+    "turkce": "bu arada / aklıma gelmişken",
+    "cumle": "By the way, have you heard from John recently?",
     "seviye": "Günlük"
   }
 ]
