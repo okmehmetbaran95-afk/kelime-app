@@ -396,9 +396,11 @@
     let allWords = [];
     let currentCards = [];
     let currentCardIndex = 0;
+    let currentLevel = 'Tümü';
+    let levelProgress = JSON.parse(localStorage.getItem('kelime_seviye_ilerlemeleri') || '{}');
     let favorites = JSON.parse(localStorage.getItem('kelime_favoriler') || '[]');
 
-    /* GÜNLÜK SERİ (STREAK) YÖNETİMİ */
+    /* GÜNLÜK SERİ (STREAK) */
     function checkAndUpdateStreak() {
       const today = new Date().toISOString().slice(0, 10);
       let data = JSON.parse(localStorage.getItem('kelime_streak') || '{"lastDate":"","count":0}');
@@ -428,15 +430,13 @@
       if (el) el.innerText = `🔥 ${count} Gün`;
     }
 
-    /* DURUM VE FAVORİ YÖNETİMİ */
+    /* SEVİYE BAZLI HAFIZA YÖNETİMİ */
     function saveCardProgress() {
       if (!currentCards.length) return;
-      const curWord = currentCards[currentCardIndex]?.ingilizce || '';
-      const activePill = document.querySelector('.pill.active')?.innerText.replace('⭐ ', '').trim() || 'Tümü';
-      localStorage.setItem('kelime_son_durum', JSON.stringify({
-        seviye: activePill,
-        kelime: curWord
-      }));
+      const curWord = (currentCards[currentCardIndex]?.ingilizce || '').toLowerCase();
+      levelProgress[currentLevel] = curWord;
+      localStorage.setItem('kelime_seviye_ilerlemeleri', JSON.stringify(levelProgress));
+      localStorage.setItem('kelime_son_aktif_seviye', currentLevel);
     }
 
     function isFavorite(word) {
@@ -457,8 +457,7 @@
       localStorage.setItem('kelime_favoriler', JSON.stringify(favorites));
       updateFavButtons();
 
-      const activePill = document.querySelector('.pill.active')?.innerText.trim();
-      if (activePill === '⭐ Favoriler') {
+      if (currentLevel === 'Favoriler') {
         currentCards = allWords.filter(w => isFavorite(w.ingilizce));
         if (currentCardIndex >= currentCards.length) currentCardIndex = Math.max(0, currentCards.length - 1);
         updateCardUI();
@@ -487,37 +486,42 @@
 
         checkAndUpdateStreak();
 
-        const sonDurum = JSON.parse(localStorage.getItem('kelime_son_durum') || '{}');
-        const hedefSeviye = sonDurum.seviye || 'Tümü';
-        const hedefKelime = (sonDurum.kelime || '').toLowerCase();
+        const sonSeviye = localStorage.getItem('kelime_son_aktif_seviye') || 'Tümü';
+        currentLevel = sonSeviye;
 
         document.querySelectorAll('.pill').forEach(p => {
           const txt = p.innerText.replace('⭐ ', '').trim();
-          if (txt === hedefSeviye) p.classList.add('active');
+          if (txt === sonSeviye) p.classList.add('active');
           else p.classList.remove('active');
         });
 
-        if (hedefSeviye === 'Favoriler') {
-          currentCards = allWords.filter(w => isFavorite(w.ingilizce));
-        } else if (hedefSeviye === 'Tümü') {
-          currentCards = allWords;
-        } else {
-          currentCards = allWords.filter(w => (w.seviye || '').toUpperCase() === hedefSeviye);
-        }
-
-        if (hedefKelime) {
-          const idx = currentCards.findIndex(w => (w.ingilizce || '').toLowerCase() === hedefKelime);
-          currentCardIndex = (idx !== -1) ? idx : 0;
-        } else {
-          currentCardIndex = 0;
-        }
-
-        updateCardUI();
+        yukleSeviyeKartlari(sonSeviye);
         renderLibrary();
       })
       .catch(() => {
         document.getElementById('front-word').innerText = "Veri bulunamadı!";
       });
+
+    function yukleSeviyeKartlari(level) {
+      if (level === 'Favoriler') {
+        currentCards = allWords.filter(w => isFavorite(w.ingilizce));
+      } else if (level === 'Tümü') {
+        currentCards = allWords;
+      } else {
+        currentCards = allWords.filter(w => (w.seviye || '').toUpperCase() === level);
+      }
+
+      // Bu seviyede en son kalınan kelimeyi bul
+      const hedefKelime = (levelProgress[level] || '').toLowerCase();
+      if (hedefKelime) {
+        const idx = currentCards.findIndex(w => (w.ingilizce || '').toLowerCase() === hedefKelime);
+        currentCardIndex = (idx !== -1) ? idx : 0;
+      } else {
+        currentCardIndex = 0;
+      }
+
+      updateCardUI();
+    }
 
     function switchTab(tab, btn) {
       document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
@@ -528,19 +532,14 @@
     }
 
     function filterCards(level, el) {
+      // Önceki seviyedeki pozisyonu diske işle
+      saveCardProgress();
+
       document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
       if (el) el.classList.add('active');
 
-      if (level === 'Favoriler') {
-        currentCards = allWords.filter(w => isFavorite(w.ingilizce));
-      } else if (level === 'Tümü') {
-        currentCards = allWords;
-      } else {
-        currentCards = allWords.filter(w => (w.seviye || '').toUpperCase() === level);
-      }
-
-      currentCardIndex = 0;
-      updateCardUI();
+      currentLevel = level;
+      yukleSeviyeKartlari(level);
       saveCardProgress();
       checkAndUpdateStreak();
     }
