@@ -2,6 +2,9 @@
 <html lang="tr">
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Kelime 1.0</title>
   <link rel="manifest" href="manifest.json">
@@ -37,7 +40,9 @@
       align-items: center;
       border-bottom: 1px solid #242852;
     }
+    .logo-container { display: flex; align-items: baseline; gap: 6px; }
     .logo-text { font-size: 19px; font-weight: 800; color: var(--accent); letter-spacing: 0.5px; }
+    .version-tag { font-size: 10px; font-weight: 700; color: var(--muted); }
     .streak-badge {
       font-size: 13px;
       font-weight: 800;
@@ -186,6 +191,9 @@
       font-weight: 700;
       font-size: 14px;
       cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
     }
     .btn-primary { background: var(--accent); color: #fff; }
     .btn-secondary { background: var(--muted); color: #fff; }
@@ -258,7 +266,10 @@
 <body>
 
   <header>
-    <span class="logo-text">KELİME 1.0</span>
+    <div class="logo-container">
+      <span class="logo-text">KELİME 1.0</span>
+      <span class="version-tag">v1.2</span>
+    </div>
     <div class="streak-badge" id="streak-indicator">🔥 0 Gün</div>
   </header>
 
@@ -344,7 +355,12 @@
           <button class="audio-btn" style="margin-top:8px;" onclick="speakQuiz()">🔊 Dinle</button>
         </div>
         <div id="quiz-options" style="flex:1;"></div>
-        <button id="quiz-next-btn" class="btn btn-primary" onclick="nextQuizQuestion()">Sonraki Soru ▶</button>
+
+        <!-- TEST GEZİNME BUTONLARI (Önceki & Sonraki) -->
+        <div style="display:flex; gap:10px; margin-top:10px;">
+          <button id="quiz-prev-btn" class="btn btn-secondary" onclick="prevQuizQuestion()">◀ Önceki Soru</button>
+          <button id="quiz-next-btn" class="btn btn-primary" onclick="nextQuizQuestion()">Sonraki Soru ▶</button>
+        </div>
       </div>
 
       <div id="quiz-result" style="display:none; flex-direction:column; height:100%;">
@@ -433,8 +449,15 @@
     /* SEVİYE BAZLI HAFIZA YÖNETİMİ */
     function saveCardProgress() {
       if (!currentCards.length) return;
-      const curWord = (currentCards[currentCardIndex]?.ingilizce || '').toLowerCase();
-      levelProgress[currentLevel] = curWord;
+      const cur = currentCards[currentCardIndex];
+      if (!cur) return;
+      const curWord = (cur.ingilizce || '').trim().toLowerCase();
+      
+      levelProgress[currentLevel] = {
+        word: curWord,
+        index: currentCardIndex
+      };
+      
       localStorage.setItem('kelime_seviye_ilerlemeleri', JSON.stringify(levelProgress));
       localStorage.setItem('kelime_son_aktif_seviye', currentLevel);
     }
@@ -511,15 +534,36 @@
         currentCards = allWords.filter(w => (w.seviye || '').toUpperCase() === level);
       }
 
-      // Bu seviyede en son kalınan kelimeyi bul
-      const hedefKelime = (levelProgress[level] || '').toLowerCase();
-      if (hedefKelime) {
-        const idx = currentCards.findIndex(w => (w.ingilizce || '').toLowerCase() === hedefKelime);
-        currentCardIndex = (idx !== -1) ? idx : 0;
-      } else {
+      if (!currentCards.length) {
         currentCardIndex = 0;
+        updateCardUI();
+        return;
       }
 
+      // Kayıtlı ilerlemeyi al (obje veya eski string uyumlu)
+      const prog = levelProgress[level];
+      let targetWord = '';
+      let targetIndex = -1;
+
+      if (typeof prog === 'string') {
+        targetWord = prog.trim().toLowerCase();
+      } else if (prog && typeof prog === 'object') {
+        targetWord = (prog.word || '').trim().toLowerCase();
+        targetIndex = prog.index;
+      }
+
+      // 1. Kelime adına göre ara
+      let bulunan = -1;
+      if (targetWord) {
+        bulunan = currentCards.findIndex(w => (w.ingilizce || '').trim().toLowerCase() === targetWord);
+      }
+
+      // 2. Bulunamazsa kayıtlı indekse bak
+      if (bulunan === -1 && targetIndex >= 0 && targetIndex < currentCards.length) {
+        bulunan = targetIndex;
+      }
+
+      currentCardIndex = (bulunan !== -1) ? bulunan : 0;
       updateCardUI();
     }
 
@@ -532,14 +576,18 @@
     }
 
     function filterCards(level, el) {
-      // Önceki seviyedeki pozisyonu diske işle
+      // 1. Önceki seviyenin konumunu kaydet
       saveCardProgress();
 
+      // 2. Buton stilini güncelle
       document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
       if (el) el.classList.add('active');
 
+      // 3. Yeni seviyeyi aç
       currentLevel = level;
       yukleSeviyeKartlari(level);
+      
+      // 4. Yeni konumu kaydet
       saveCardProgress();
       checkAndUpdateStreak();
     }
@@ -694,11 +742,32 @@
         opts.appendChild(b);
       });
 
-      document.getElementById('quiz-next-btn').innerText = (quizIndex === quizQuestions.length - 1) ? 'Sonuçları Gör 🏁' : 'Sonraki Soru ▶';
+      // Önceki soru butonu durumu
+      const prevBtn = document.getElementById('quiz-prev-btn');
+      if (quizIndex === 0) {
+        prevBtn.disabled = true;
+        prevBtn.style.opacity = '0.4';
+        prevBtn.style.pointerEvents = 'none';
+      } else {
+        prevBtn.disabled = false;
+        prevBtn.style.opacity = '1';
+        prevBtn.style.pointerEvents = 'auto';
+      }
+
+      // Sonraki soru butonu durumu
+      const nextBtn = document.getElementById('quiz-next-btn');
+      nextBtn.innerText = (quizIndex === quizQuestions.length - 1) ? 'Sonuçları Gör 🏁' : 'Sonraki Soru ▶';
     }
 
     function speakQuiz() {
       speakText(quizQuestions[quizIndex].word.ingilizce);
+    }
+
+    function prevQuizQuestion() {
+      if (quizIndex > 0) {
+        quizIndex--;
+        renderQuizQuestion();
+      }
     }
 
     function nextQuizQuestion() {
