@@ -34,31 +34,60 @@
       overflow: hidden;
     }
     header {
-      padding: 14px 20px;
+      padding: 10px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      border-bottom: 1px solid #242852;
+    }
+    .header-top {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid #242852;
     }
     .logo-container { display: flex; align-items: baseline; gap: 6px; }
-    .logo-text { font-size: 19px; font-weight: 800; color: var(--accent); letter-spacing: 0.5px; }
+    .logo-text { font-size: 18px; font-weight: 800; color: var(--accent); letter-spacing: 0.5px; }
     .version-tag { font-size: 10px; font-weight: 700; color: var(--muted); }
     .streak-badge {
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 800;
       color: var(--accent);
       background: var(--panel);
-      padding: 5px 12px;
-      border-radius: 14px;
+      padding: 4px 10px;
+      border-radius: 12px;
       border: 1px solid #2A2E5D;
-      display: flex;
-      align-items: center;
-      gap: 5px;
     }
+
+    /* MOD ANAHTARI (Kelimeler vs Kalıplar) */
+    .mode-switch {
+      display: flex;
+      background: #101226;
+      padding: 3px;
+      border-radius: 12px;
+      border: 1px solid #242852;
+    }
+    .mode-btn {
+      flex: 1;
+      padding: 7px;
+      font-size: 12px;
+      font-weight: 800;
+      border: none;
+      background: transparent;
+      color: var(--muted);
+      border-radius: 9px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .mode-btn.active {
+      background: var(--accent);
+      color: #fff;
+      box-shadow: 0 2px 8px rgba(255,107,0,0.3);
+    }
+
     main {
       flex: 1;
       overflow-y: auto;
-      padding: 16px;
+      padding: 14px 16px;
       display: flex;
       flex-direction: column;
     }
@@ -67,7 +96,7 @@
       display: flex;
       justify-content: space-around;
       border-top: 1px solid #242852;
-      padding: 10px 0 calc(10px + env(safe-area-inset-bottom));
+      padding: 8px 0 calc(8px + env(safe-area-inset-bottom));
     }
     .nav-btn {
       background: none;
@@ -78,7 +107,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 4px;
+      gap: 3px;
       cursor: pointer;
     }
     .nav-btn.active { color: var(--accent); }
@@ -88,14 +117,14 @@
     .tab-content.active { display: flex; }
 
     /* FLASHCARD */
-    .filter-pills { display: flex; gap: 6px; overflow-x: auto; padding-bottom: 12px; }
+    .filter-pills { display: flex; gap: 6px; overflow-x: auto; padding-bottom: 10px; }
     .pill {
       background: var(--panel);
       color: var(--muted);
       border: 1px solid #242852;
       padding: 6px 14px;
       border-radius: 20px;
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 700;
       white-space: nowrap;
       cursor: pointer;
@@ -109,12 +138,12 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      margin: 10px 0;
+      margin: 8px 0;
     }
     .card {
       width: 100%;
       max-width: 400px;
-      height: 320px;
+      height: 310px;
       position: relative;
       transform-style: preserve-3d;
       transition: transform 0.5s;
@@ -132,14 +161,14 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      padding: 24px;
+      padding: 22px;
       text-align: center;
       backface-visibility: hidden;
       box-shadow: 0 10px 30px rgba(0,0,0,0.5);
     }
     .card-back { transform: rotateY(180deg); }
     .badge {
-      font-size: 12px;
+      font-size: 11px;
       font-weight: 800;
       color: var(--accent);
       position: absolute;
@@ -156,36 +185,36 @@
       color: var(--muted);
       cursor: pointer;
       padding: 4px;
-      transition: transform 0.2s;
     }
-    .fav-btn:active { transform: scale(1.3); }
     .fav-btn.active { color: var(--gold); }
     
-    .word-text { font-size: 32px; font-weight: 800; margin-bottom: 16px; }
+    .word-text { font-size: 28px; font-weight: 800; margin-bottom: 14px; word-break: break-word; }
     .sentence-box {
       background: #12152E;
       padding: 12px;
       border-radius: 10px;
-      font-size: 14px;
+      font-size: 13px;
       color: #CBD5E1;
       font-style: italic;
       margin-top: 10px;
       border: 1px solid #242852;
+      max-height: 95px;
+      overflow-y: auto;
     }
     .audio-btn {
       background: var(--accent);
       border: none;
       color: #fff;
-      padding: 8px 16px;
-      border-radius: 20px;
+      padding: 7px 14px;
+      border-radius: 18px;
       font-weight: 700;
-      font-size: 13px;
+      font-size: 12px;
       cursor: pointer;
     }
-    .card-nav { display: flex; justify-content: space-between; gap: 10px; margin-top: 10px; }
+    .card-nav { display: flex; justify-content: space-between; gap: 10px; margin-top: 8px; }
     .btn {
       flex: 1;
-      padding: 14px;
+      padding: 13px;
       border-radius: 12px;
       border: none;
       font-weight: 700;
@@ -224,9 +253,9 @@
       background: var(--panel);
       color: var(--muted);
       border: 2px solid #2A2E5D;
-      padding: 10px 16px;
+      padding: 10px 14px;
       border-radius: 12px;
-      font-size: 15px;
+      font-size: 14px;
       font-weight: 800;
       cursor: pointer;
       flex: 1;
@@ -240,14 +269,14 @@
     }
     .option-btn {
       width: 100%;
-      padding: 16px;
+      padding: 15px;
       margin: 6px 0;
       background: var(--panel);
       border: 1px solid #2A2E5D;
       color: #fff;
       border-radius: 12px;
       text-align: left;
-      font-size: 15px;
+      font-size: 14px;
       font-weight: 700;
       cursor: pointer;
     }
@@ -266,25 +295,23 @@
 <body>
 
   <header>
-    <div class="logo-container">
-      <span class="logo-text">KELİME 1.0</span>
-      <span class="version-tag">v1.2</span>
+    <div class="header-top">
+      <div class="logo-container">
+        <span class="logo-text">KELİME 1.0</span>
+        <span class="version-tag">v2.0</span>
+      </div>
+      <div class="streak-badge" id="streak-indicator">🔥 0 Gün</div>
     </div>
-    <div class="streak-badge" id="streak-indicator">🔥 0 Gün</div>
+    <div class="mode-switch">
+      <button class="mode-btn active" id="btn-mode-kelime" onclick="setAppMode('kelime')">📚 Kelimeler</button>
+      <button class="mode-btn" id="btn-mode-kalip" onclick="setAppMode('kalip')">💬 Kalıplar & Deyimler</button>
+    </div>
   </header>
 
   <main>
     <!-- 1. KARTLAR -->
     <section id="tab-cards" class="tab-content active">
-      <div class="filter-pills" id="level-pills">
-        <div class="pill active" onclick="filterCards('Tümü', this)">Tümü</div>
-        <div class="pill fav-pill" onclick="filterCards('Favoriler', this)">⭐ Favoriler</div>
-        <div class="pill" onclick="filterCards('A1', this)">A1</div>
-        <div class="pill" onclick="filterCards('A2', this)">A2</div>
-        <div class="pill" onclick="filterCards('B1', this)">B1</div>
-        <div class="pill" onclick="filterCards('B2', this)">B2</div>
-        <div class="pill" onclick="filterCards('C1', this)">C1</div>
-      </div>
+      <div class="filter-pills" id="level-pills"></div>
       <div style="display:flex; justify-content:space-between; font-size:12px; color:var(--muted)">
         <span id="card-level-tag">SEVİYE: A1</span>
         <span id="card-counter">0 / 0</span>
@@ -313,31 +340,25 @@
 
     <!-- 2. KÜTÜPHANE -->
     <section id="tab-library" class="tab-content">
-      <input type="text" class="search-box" id="search-input" placeholder="Kelime ara..." oninput="renderLibrary()">
+      <input type="text" class="search-box" id="search-input" placeholder="Ara..." oninput="renderLibrary()">
       <div class="word-list" id="library-list"></div>
     </section>
 
     <!-- 3. TEST MODU -->
     <section id="tab-quiz" class="tab-content">
       <div id="quiz-setup">
-        <h2 style="color:var(--accent); margin-bottom:12px;">🎯 Test Ayarları</h2>
-        <p style="color:var(--muted); font-size:14px; margin-bottom:20px;">Dahil etmek istediğin seviyeleri ve soru sayısını belirle:</p>
+        <h2 style="color:var(--accent); margin-bottom:10px;" id="quiz-title">🎯 Test Ayarları</h2>
+        <p style="color:var(--muted); font-size:13px; margin-bottom:16px;">Soru havuzuna dahil edilecek filtreleri ve soru adedini seç:</p>
         
-        <label style="font-size:14px; font-weight:700; margin-bottom:8px; display:block;">Dahil Edilecek Seviyeler:</label>
-        <div style="display:flex; gap:8px; margin-bottom:20px;" id="quiz-levels-container">
-          <button type="button" class="quiz-lvl-btn active" data-lvl="A1" onclick="toggleQuizLevel(this)">A1</button>
-          <button type="button" class="quiz-lvl-btn active" data-lvl="A2" onclick="toggleQuizLevel(this)">A2</button>
-          <button type="button" class="quiz-lvl-btn active" data-lvl="B1" onclick="toggleQuizLevel(this)">B1</button>
-          <button type="button" class="quiz-lvl-btn active" data-lvl="B2" onclick="toggleQuizLevel(this)">B2</button>
-          <button type="button" class="quiz-lvl-btn active" data-lvl="C1" onclick="toggleQuizLevel(this)">C1</button>
-        </div>
+        <label style="font-size:13px; font-weight:700; margin-bottom:8px; display:block;" id="quiz-filter-label">Dahil Edilecek Seviyeler:</label>
+        <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:20px;" id="quiz-levels-container"></div>
 
-        <label style="font-size:14px; font-weight:700; margin-bottom:8px; display:block;">Soru Sayısı:</label>
-        <select id="quiz-count" class="search-box" style="margin-bottom:24px;">
+        <label style="font-size:13px; font-weight:700; margin-bottom:8px; display:block;">Soru Sayısı:</label>
+        <select id="quiz-count" class="search-box" style="margin-bottom:20px;">
           <option value="5">5 Soru</option>
           <option value="10" selected>10 Soru</option>
+          <option value="15">15 Soru</option>
           <option value="20">20 Soru</option>
-          <option value="30">30 Soru</option>
         </select>
 
         <p id="quiz-error-msg" style="color:var(--danger); font-size:13px; font-weight:700; margin-bottom:10px; display:none;"></p>
@@ -349,15 +370,14 @@
           <span id="quiz-progress" style="color:var(--accent); font-weight:700;">Soru 1 / 10</span>
           <button onclick="finishQuiz()" style="background:var(--danger); border:none; color:#fff; padding:6px 12px; border-radius:8px; font-size:12px; font-weight:700;">Bitir</button>
         </div>
-        <div style="background:var(--card-bg); padding:18px; border-radius:16px; border:2px solid var(--fuchsia); text-align:center; margin-bottom:12px;">
-          <span id="quiz-badge" style="color:var(--fuchsia); font-weight:800; font-size:12px; display:block; margin-bottom:4px;">SEVİYE: A1</span>
-          <div id="quiz-word" style="font-size:28px; font-weight:800;">Word</div>
+        <div style="background:var(--card-bg); padding:16px; border-radius:16px; border:2px solid var(--fuchsia); text-align:center; margin-bottom:12px;">
+          <span id="quiz-badge" style="color:var(--fuchsia); font-weight:800; font-size:11px; display:block; margin-bottom:4px;">KATEGORİ</span>
+          <div id="quiz-word" style="font-size:24px; font-weight:800;">Word</div>
           <button class="audio-btn" style="margin-top:8px;" onclick="speakQuiz()">🔊 Dinle</button>
         </div>
         <div id="quiz-options" style="flex:1;"></div>
 
-        <!-- TEST GEZİNME BUTONLARI (Önceki & Sonraki) -->
-        <div style="display:flex; gap:10px; margin-top:10px;">
+        <div style="display:flex; gap:10px; margin-top:8px;">
           <button id="quiz-prev-btn" class="btn btn-secondary" onclick="prevQuizQuestion()">◀ Önceki Soru</button>
           <button id="quiz-next-btn" class="btn btn-primary" onclick="nextQuizQuestion()">Sonraki Soru ▶</button>
         </div>
@@ -365,26 +385,20 @@
 
       <div id="quiz-result" style="display:none; flex-direction:column; height:100%;">
         <h2 style="color:var(--accent); text-align:center; margin-bottom:10px;">🏆 Test Tamamlandı</h2>
-        <div id="quiz-stats" style="text-align:center; font-size:15px; margin-bottom:15px;"></div>
+        <div id="quiz-stats" style="text-align:center; font-size:14px; margin-bottom:14px;"></div>
         <div id="quiz-review" style="flex:1; overflow-y:auto;"></div>
         <button class="btn btn-primary" style="margin-top:10px;" onclick="resetQuiz()">Yeni Test</button>
       </div>
     </section>
 
-    <!-- 4. KELİME EKLE -->
+    <!-- 4. EKLE -->
     <section id="tab-add" class="tab-content">
-      <h2 style="color:var(--accent); margin-bottom:15px;">Yeni Kelime Ekle</h2>
-      <input type="text" id="add-en" class="search-box" placeholder="İngilizce Kelime">
+      <h2 style="color:var(--accent); margin-bottom:12px;" id="add-title">Yeni Kelime Ekle</h2>
+      <input type="text" id="add-en" class="search-box" placeholder="İngilizce İfade">
       <input type="text" id="add-tr" class="search-box" placeholder="Türkçe Anlamı">
-      <input type="text" id="add-sentence" class="search-box" placeholder="Örnek Cümle (İsteğe bağlı)">
-      <select id="add-level" class="search-box">
-        <option value="A1">A1</option>
-        <option value="A2">A2</option>
-        <option value="B1">B1</option>
-        <option value="B2">B2</option>
-        <option value="C1">C1</option>
-      </select>
-      <button class="btn btn-primary" style="width:100%; margin-top:10px;" onclick="saveNewWord()">Kelimeyi Kaydet</button>
+      <input type="text" id="add-sentence" class="search-box" placeholder="Örnek Cümle">
+      <select id="add-level" class="search-box"></select>
+      <button class="btn btn-primary" style="width:100%; margin-top:8px;" onclick="saveNewEntry()">Kaydet</button>
       <p id="add-status" style="margin-top:10px; font-size:14px; text-align:center;"></p>
     </section>
   </main>
@@ -409,12 +423,23 @@
   </nav>
 
   <script>
-    let allWords = [];
+    let appMode = localStorage.getItem('kelime_aktif_mod') || 'kelime'; // 'kelime' veya 'kalip'
+    let dataSets = {
+      kelime: [],
+      kalip: []
+    };
     let currentCards = [];
     let currentCardIndex = 0;
-    let currentLevel = 'Tümü';
-    let levelProgress = JSON.parse(localStorage.getItem('kelime_seviye_ilerlemeleri') || '{}');
-    let favorites = JSON.parse(localStorage.getItem('kelime_favoriler') || '[]');
+    let currentFilter = 'Tümü';
+
+    const CATEGORIES = {
+      kelime: ['A1', 'A2', 'B1', 'B2', 'C1'],
+      kalip: ['Deyim', 'Phrasal', 'Günlük']
+    };
+
+    function getStorageKey(sub) {
+      return `app_${appMode}_${sub}`;
+    }
 
     /* GÜNLÜK SERİ (STREAK) */
     function checkAndUpdateStreak() {
@@ -446,42 +471,104 @@
       if (el) el.innerText = `🔥 ${count} Gün`;
     }
 
-    /* SEVİYE BAZLI HAFIZA YÖNETİMİ */
-    function saveCardProgress() {
-      if (!currentCards.length) return;
-      const cur = currentCards[currentCardIndex];
-      if (!cur) return;
-      const curWord = (cur.ingilizce || '').trim().toLowerCase();
-      
-      levelProgress[currentLevel] = {
-        word: curWord,
-        index: currentCardIndex
-      };
-      
-      localStorage.setItem('kelime_seviye_ilerlemeleri', JSON.stringify(levelProgress));
-      localStorage.setItem('kelime_son_aktif_seviye', currentLevel);
+    /* MOD GEÇİŞİ */
+    function setAppMode(mode) {
+      saveCardProgress();
+      appMode = mode;
+      localStorage.setItem('kelime_aktif_mod', mode);
+
+      document.getElementById('btn-mode-kelime').classList.toggle('active', mode === 'kelime');
+      document.getElementById('btn-mode-kalip').classList.toggle('active', mode === 'kalip');
+
+      document.getElementById('search-input').placeholder = mode === 'kelime' ? "Kelime ara..." : "Kalıp veya deyim ara...";
+      document.getElementById('add-title').innerText = mode === 'kelime' ? "Yeni Kelime Ekle" : "Yeni Kalıp / Deyim Ekle";
+
+      buildPillsAndControls();
+      loadModeState();
+      renderLibrary();
+      checkAndUpdateStreak();
+    }
+
+    function buildPillsAndControls() {
+      // 1. Kart Filtreleri
+      const pillBox = document.getElementById('level-pills');
+      pillBox.innerHTML = '';
+      const items = ['Tümü', 'Favoriler', ...CATEGORIES[appMode]];
+
+      items.forEach(it => {
+        const d = document.createElement('div');
+        d.className = 'pill' + (it === 'Favoriler' ? ' fav-pill' : '');
+        d.innerText = it === 'Favoriler' ? '⭐ Favoriler' : it;
+        d.onclick = () => filterCards(it, d);
+        pillBox.appendChild(d);
+      });
+
+      // 2. Test Modu Butonları
+      const quizLvlBox = document.getElementById('quiz-levels-container');
+      quizLvlBox.innerHTML = '';
+      CATEGORIES[appMode].forEach(cat => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'quiz-lvl-btn active';
+        btn.dataset.lvl = cat;
+        btn.innerText = cat;
+        btn.onclick = () => btn.classList.toggle('active');
+        quizLvlBox.appendChild(btn);
+      });
+
+      // 3. Ekleme Açılır Menüsü
+      const addSelect = document.getElementById('add-level');
+      addSelect.innerHTML = '';
+      CATEGORIES[appMode].forEach(cat => {
+        const opt = document.createElement('option');
+        opt.value = cat;
+        opt.innerText = cat;
+        addSelect.appendChild(opt);
+      });
+    }
+
+    /* VERİ YÜKLEME */
+    Promise.all([
+      fetch('kelimeler.json').then(r => r.json()).catch(() => []),
+      fetch('kaliplar.json').then(r => r.json()).catch(() => [])
+    ]).then(([kelimeler, kaliplar]) => {
+      const customK = JSON.parse(localStorage.getItem('custom_words') || '[]');
+      const customP = JSON.parse(localStorage.getItem('custom_phrases') || '[]');
+
+      dataSets.kelime = [...customK, ...kelimeler];
+      dataSets.kalip = [...customP, ...kaliplar];
+
+      checkAndUpdateStreak();
+      setAppMode(appMode);
+    });
+
+    function getActiveDataset() {
+      return dataSets[appMode] || [];
+    }
+
+    function getFavorites() {
+      return JSON.parse(localStorage.getItem(getStorageKey('favs')) || '[]');
     }
 
     function isFavorite(word) {
-      return favorites.includes((word || '').toLowerCase());
+      return getFavorites().includes((word || '').trim().toLowerCase());
     }
 
     function toggleFavorite(e) {
       if (e) e.stopPropagation();
       if (!currentCards.length) return;
-      const word = (currentCards[currentCardIndex].ingilizce || '').toLowerCase();
-      const idx = favorites.indexOf(word);
+      const word = (currentCards[currentCardIndex].ingilizce || '').trim().toLowerCase();
+      let favs = getFavorites();
+      const idx = favs.indexOf(word);
 
-      if (idx === -1) {
-        favorites.push(word);
-      } else {
-        favorites.splice(idx, 1);
-      }
-      localStorage.setItem('kelime_favoriler', JSON.stringify(favorites));
+      if (idx === -1) favs.push(word);
+      else favs.splice(idx, 1);
+
+      localStorage.setItem(getStorageKey('favs'), JSON.stringify(favs));
       updateFavButtons();
 
-      if (currentLevel === 'Favoriler') {
-        currentCards = allWords.filter(w => isFavorite(w.ingilizce));
+      if (currentFilter === 'Favoriler') {
+        currentCards = getActiveDataset().filter(w => isFavorite(w.ingilizce));
         if (currentCardIndex >= currentCards.length) currentCardIndex = Math.max(0, currentCards.length - 1);
         updateCardUI();
       }
@@ -490,7 +577,7 @@
 
     function updateFavButtons() {
       if (!currentCards.length) return;
-      const word = (currentCards[currentCardIndex].ingilizce || '').toLowerCase();
+      const word = (currentCards[currentCardIndex].ingilizce || '').trim().toLowerCase();
       const fav = isFavorite(word);
       ['fav-btn-front', 'fav-btn-back'].forEach(id => {
         const btn = document.getElementById(id);
@@ -501,37 +588,42 @@
       });
     }
 
-    fetch('kelimeler.json')
-      .then(res => res.json())
-      .then(data => {
-        const local = JSON.parse(localStorage.getItem('custom_words') || '[]');
-        allWords = [...local, ...data];
+    function saveCardProgress() {
+      if (!currentCards.length) return;
+      const cur = currentCards[currentCardIndex];
+      if (!cur) return;
 
-        checkAndUpdateStreak();
+      const progress = JSON.parse(localStorage.getItem(getStorageKey('progress')) || '{}');
+      progress[currentFilter] = {
+        word: (cur.ingilizce || '').trim().toLowerCase(),
+        index: currentCardIndex
+      };
 
-        const sonSeviye = localStorage.getItem('kelime_son_aktif_seviye') || 'Tümü';
-        currentLevel = sonSeviye;
+      localStorage.setItem(getStorageKey('progress'), JSON.stringify(progress));
+      localStorage.setItem(getStorageKey('last_filter'), currentFilter);
+    }
 
-        document.querySelectorAll('.pill').forEach(p => {
-          const txt = p.innerText.replace('⭐ ', '').trim();
-          if (txt === sonSeviye) p.classList.add('active');
-          else p.classList.remove('active');
-        });
+    function loadModeState() {
+      const lastF = localStorage.getItem(getStorageKey('last_filter')) || 'Tümü';
+      currentFilter = lastF;
 
-        yukleSeviyeKartlari(sonSeviye);
-        renderLibrary();
-      })
-      .catch(() => {
-        document.getElementById('front-word').innerText = "Veri bulunamadı!";
+      document.querySelectorAll('#level-pills .pill').forEach(p => {
+        const txt = p.innerText.replace('⭐ ', '').trim();
+        p.classList.toggle('active', txt === lastF);
       });
 
-    function yukleSeviyeKartlari(level) {
-      if (level === 'Favoriler') {
-        currentCards = allWords.filter(w => isFavorite(w.ingilizce));
-      } else if (level === 'Tümü') {
-        currentCards = allWords;
+      loadCardsForFilter(lastF);
+    }
+
+    function loadCardsForFilter(filter) {
+      const pool = getActiveDataset();
+
+      if (filter === 'Favoriler') {
+        currentCards = pool.filter(w => isFavorite(w.ingilizce));
+      } else if (filter === 'Tümü') {
+        currentCards = pool;
       } else {
-        currentCards = allWords.filter(w => (w.seviye || '').toUpperCase() === level);
+        currentCards = pool.filter(w => (w.seviye || '').toUpperCase() === filter.toUpperCase());
       }
 
       if (!currentCards.length) {
@@ -540,54 +632,34 @@
         return;
       }
 
-      // Kayıtlı ilerlemeyi al (obje veya eski string uyumlu)
-      const prog = levelProgress[level];
+      const progress = JSON.parse(localStorage.getItem(getStorageKey('progress')) || '{}');
+      const itemProg = progress[filter];
       let targetWord = '';
-      let targetIndex = -1;
+      let targetIdx = -1;
 
-      if (typeof prog === 'string') {
-        targetWord = prog.trim().toLowerCase();
-      } else if (prog && typeof prog === 'object') {
-        targetWord = (prog.word || '').trim().toLowerCase();
-        targetIndex = prog.index;
+      if (itemProg && typeof itemProg === 'object') {
+        targetWord = (itemProg.word || '').trim().toLowerCase();
+        targetIdx = itemProg.index;
       }
 
-      // 1. Kelime adına göre ara
-      let bulunan = -1;
+      let found = -1;
       if (targetWord) {
-        bulunan = currentCards.findIndex(w => (w.ingilizce || '').trim().toLowerCase() === targetWord);
+        found = currentCards.findIndex(w => (w.ingilizce || '').trim().toLowerCase() === targetWord);
+      }
+      if (found === -1 && targetIdx >= 0 && targetIdx < currentCards.length) {
+        found = targetIdx;
       }
 
-      // 2. Bulunamazsa kayıtlı indekse bak
-      if (bulunan === -1 && targetIndex >= 0 && targetIndex < currentCards.length) {
-        bulunan = targetIndex;
-      }
-
-      currentCardIndex = (bulunan !== -1) ? bulunan : 0;
+      currentCardIndex = (found !== -1) ? found : 0;
       updateCardUI();
     }
 
-    function switchTab(tab, btn) {
-      document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
-      document.querySelectorAll('.nav-btn').forEach(el => el.classList.remove('active'));
-      document.getElementById('tab-' + tab).classList.add('active');
-      if (btn) btn.classList.add('active');
-      if (tab === 'library') renderLibrary();
-    }
-
-    function filterCards(level, el) {
-      // 1. Önceki seviyenin konumunu kaydet
+    function filterCards(filter, el) {
       saveCardProgress();
-
-      // 2. Buton stilini güncelle
-      document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('#level-pills .pill').forEach(p => p.classList.remove('active'));
       if (el) el.classList.add('active');
-
-      // 3. Yeni seviyeyi aç
-      currentLevel = level;
-      yukleSeviyeKartlari(level);
-      
-      // 4. Yeni konumu kaydet
+      currentFilter = filter;
+      loadCardsForFilter(filter);
       saveCardProgress();
       checkAndUpdateStreak();
     }
@@ -597,9 +669,9 @@
       card.classList.remove('flipped');
 
       if (!currentCards.length) {
-        document.getElementById('front-word').innerText = "Kelime Yok";
-        document.getElementById('back-word').innerText = "Favorilere henüz kelime eklemedin!";
-        document.getElementById('back-sentence').innerText = "Kartlardaki yıldız (☆) simgesine dokunarak favorilerine kelime ekleyebilirsin.";
+        document.getElementById('front-word').innerText = "Kayıt Yok";
+        document.getElementById('back-word').innerText = currentFilter === 'Favoriler' ? "Yıldızlı ifadeniz bulunmuyor!" : "Bu kategoride kayıt bulunamadı.";
+        document.getElementById('back-sentence').innerText = "Kartlardaki yıldız (☆) simgesine dokunarak favorilerine ekleyebilirsin.";
         document.getElementById('card-level-tag').innerText = "BOŞ";
         document.getElementById('card-counter').innerText = "0 / 0";
         ['fav-btn-front', 'fav-btn-back'].forEach(id => {
@@ -613,9 +685,9 @@
       document.getElementById('front-word').innerText = w.ingilizce;
       document.getElementById('back-word').innerText = w.turkce;
       document.getElementById('back-sentence').innerText = `"${w.cumle}"`;
-      document.getElementById('front-badge').innerText = w.seviye || 'B1';
-      document.getElementById('back-badge').innerText = w.seviye || 'B1';
-      document.getElementById('card-level-tag').innerText = `SEVİYE: ${w.seviye || 'B1'}`;
+      document.getElementById('front-badge').innerText = w.seviye || '';
+      document.getElementById('back-badge').innerText = w.seviye || '';
+      document.getElementById('card-level-tag').innerText = `KATEGORİ: ${w.seviye || ''}`;
       document.getElementById('card-counter').innerText = `${currentCardIndex + 1} / ${currentCards.length}`;
       updateFavButtons();
     }
@@ -661,11 +733,20 @@
       }
     }
 
+    function switchTab(tab, btn) {
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.nav-btn').forEach(el => el.classList.remove('active'));
+      document.getElementById('tab-' + tab).classList.add('active');
+      if (btn) btn.classList.add('active');
+      if (tab === 'library') renderLibrary();
+    }
+
     function renderLibrary() {
       const q = document.getElementById('search-input').value.toLowerCase();
       const list = document.getElementById('library-list');
       list.innerHTML = '';
-      const filtered = allWords.filter(w => w.ingilizce.includes(q) || w.turkce.includes(q)).slice(0, 60);
+      const pool = getActiveDataset();
+      const filtered = pool.filter(w => (w.ingilizce || '').toLowerCase().includes(q) || (w.turkce || '').toLowerCase().includes(q)).slice(0, 60);
 
       filtered.forEach(w => {
         const isFav = isFavorite(w.ingilizce);
@@ -673,9 +754,9 @@
         item.className = 'word-item';
         item.innerHTML = `
           <div>
-            <span style="color:${isFav ? 'var(--gold)' : 'var(--accent)'}; font-weight:800; font-size:12px; margin-right:6px;">${isFav ? '★' : ''} ${w.seviye}</span>
+            <span style="color:${isFav ? 'var(--gold)' : 'var(--accent)'}; font-weight:800; font-size:11px; margin-right:6px;">${isFav ? '★ ' : ''}${w.seviye}</span>
             <strong>${w.ingilizce}</strong>
-            <div style="font-size:12px; color:var(--muted);">${w.turkce}</div>
+            <div style="font-size:12px; color:var(--muted); margin-top:2px;">${w.turkce}</div>
           </div>
           <button class="audio-btn" onclick="speakText('${w.ingilizce}')">🔊</button>
         `;
@@ -683,10 +764,7 @@
       });
     }
 
-    function toggleQuizLevel(btn) {
-      btn.classList.toggle('active');
-    }
-
+    /* TEST SİSTEMİ */
     let quizQuestions = [];
     let quizIndex = 0;
 
@@ -694,16 +772,16 @@
       const err = document.getElementById('quiz-error-msg');
       err.style.display = 'none';
 
-      const activeLevels = Array.from(document.querySelectorAll('.quiz-lvl-btn.active')).map(b => b.dataset.lvl);
+      const activeLevels = Array.from(document.querySelectorAll('#quiz-levels-container .quiz-lvl-btn.active')).map(b => b.dataset.lvl.toUpperCase());
       if (activeLevels.length === 0) {
-        err.innerText = "⚠️ Lütfen en az bir seviye seçin!";
+        err.innerText = "⚠️ Lütfen en az bir kategori/seviye seçin!";
         err.style.display = 'block';
         return;
       }
 
-      const pool = allWords.filter(w => activeLevels.includes((w.seviye || '').toUpperCase()));
+      const pool = getActiveDataset().filter(w => activeLevels.includes((w.seviye || '').toUpperCase()));
       if (pool.length < 4) {
-        err.innerText = `⚠️ Seçilen seviyelerde yeterli kelime yok (Mevcut: ${pool.length})`;
+        err.innerText = `⚠️ Seçilen kategorilerde test için yeterli soru yok (Mevcut: ${pool.length})`;
         err.style.display = 'block';
         return;
       }
@@ -712,8 +790,9 @@
       const shuffled = [...pool].sort(() => 0.5 - Math.random());
       const selected = shuffled.slice(0, Math.min(count, pool.length));
 
+      const allItems = getActiveDataset();
       quizQuestions = selected.map(w => {
-        const distractors = allWords.filter(k => k.turkce !== w.turkce).sort(() => 0.5 - Math.random()).slice(0, 3).map(k => k.turkce);
+        const distractors = allItems.filter(k => k.turkce !== w.turkce).sort(() => 0.5 - Math.random()).slice(0, 3).map(k => k.turkce);
         const options = [...distractors, w.turkce].sort(() => 0.5 - Math.random());
         return { word: w, correct: w.turkce, options, chosen: null };
       });
@@ -729,7 +808,7 @@
     function renderQuizQuestion() {
       const q = quizQuestions[quizIndex];
       document.getElementById('quiz-progress').innerText = `Soru ${quizIndex + 1} / ${quizQuestions.length}`;
-      document.getElementById('quiz-badge').innerText = `SEVİYE: ${q.word.seviye || 'B1'}`;
+      document.getElementById('quiz-badge').innerText = `KATEGORİ: ${q.word.seviye || ''}`;
       document.getElementById('quiz-word').innerText = q.word.ingilizce;
       const opts = document.getElementById('quiz-options');
       opts.innerHTML = '';
@@ -742,7 +821,6 @@
         opts.appendChild(b);
       });
 
-      // Önceki soru butonu durumu
       const prevBtn = document.getElementById('quiz-prev-btn');
       if (quizIndex === 0) {
         prevBtn.disabled = true;
@@ -754,7 +832,6 @@
         prevBtn.style.pointerEvents = 'auto';
       }
 
-      // Sonraki soru butonu durumu
       const nextBtn = document.getElementById('quiz-next-btn');
       nextBtn.innerText = (quizIndex === quizQuestions.length - 1) ? 'Sonuçları Gör 🏁' : 'Sonraki Soru ▶';
     }
@@ -808,24 +885,26 @@
       document.getElementById('quiz-setup').style.display = 'block';
     }
 
-    function saveNewWord() {
+    function saveNewEntry() {
       const en = document.getElementById('add-en').value.trim();
       const tr = document.getElementById('add-tr').value.trim();
-      const s = document.getElementById('add-sentence').value.trim() || `Example for ${en}.`;
+      const s = document.getElementById('add-sentence').value.trim() || `Example sentence for ${en}.`;
       const lvl = document.getElementById('add-level').value;
 
       if (!en || !tr) return;
 
-      const newW = { ingilizce: en.toLowerCase(), turkce: tr.toLowerCase(), cumle: s, seviye: lvl };
-      const local = JSON.parse(localStorage.getItem('custom_words') || '[]');
-      local.unshift(newW);
-      localStorage.setItem('custom_words', JSON.stringify(local));
-      allWords.unshift(newW);
+      const newEntry = { ingilizce: en.toLowerCase(), turkce: tr.toLowerCase(), cumle: s, seviye: lvl };
+      const storageKey = appMode === 'kelime' ? 'custom_words' : 'custom_phrases';
+      const local = JSON.parse(localStorage.getItem(storageKey) || '[]');
+      local.unshift(newEntry);
+      localStorage.setItem(storageKey, JSON.stringify(local));
+
+      dataSets[appMode].unshift(newEntry);
 
       document.getElementById('add-en').value = '';
       document.getElementById('add-tr').value = '';
       document.getElementById('add-sentence').value = '';
-      document.getElementById('add-status').innerText = `✅ "${en}" kelimesi kaydedildi!`;
+      document.getElementById('add-status').innerText = `✅ "${en}" başarıyla kaydedildi!`;
       setTimeout(() => document.getElementById('add-status').innerText = '', 3000);
       checkAndUpdateStreak();
     }
